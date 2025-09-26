@@ -137,3 +137,13 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+#Diagrams
+*.dot
+*.png
+
+# Others
+cdk.out
+package-lock.json
+package.json
+__pycache__/
