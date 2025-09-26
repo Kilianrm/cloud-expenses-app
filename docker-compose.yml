@@ -4,7 +4,11 @@ services:
     build: ./docker
     container_name: cloud-expenses-cdk
     volumes:
-      - ./cdk/:/workspace
+      - ./cdk/:/workspace/
+      - ./lambdas/:/workspace/lambdas
+      - ./tests/:/workspace/tests
+      - ./utils/:/workspace/utils
+
     working_dir: /workspace
     tty: true
     stdin_open: true
