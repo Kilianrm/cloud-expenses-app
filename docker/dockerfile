@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     unzip \
     git \
+    graphviz \
     && apt-get clean
 
 # Install Node.js 20 and npm
@@ -16,6 +17,15 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g aws-cdk@^2 \
     && npm cache clean --force
+
+# Instalal cdk-dia
+RUN npm install -g cdk-dia
+
+# Install aws cli2
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip" \
+    && unzip /tmp/awscliv2.zip -d /tmp \
+    && /tmp/aws/install \
+    && rm -rf /tmp/awscliv2.zip /tmp/aws
 
 # Set working directory
 WORKDIR /workspace
